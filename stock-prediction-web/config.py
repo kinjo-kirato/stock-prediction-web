@@ -15,4 +15,4 @@ class Config:
     NUM_EPISODES = 100  # 強化学習のエピソード数
 
     # Yahoo Finance APIやその他APIのキー
-    YAHOO_FINANCE_API_KEY = os.environ.get('Key') or 'your_api_key_here'
+    YAHOO_FINANCE_API_KEY = os.environ.get('Key') or 'your_api_key_here'    # 自分のキーを入力
