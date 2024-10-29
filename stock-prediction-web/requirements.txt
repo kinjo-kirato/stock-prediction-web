@@ -1,0 +1,9 @@
+Flask
+Flask-SQLAlchemy
+pandas
+yfinance
+tensorflow
+xgboost
+scikit-learn
+statsmodels
+arch

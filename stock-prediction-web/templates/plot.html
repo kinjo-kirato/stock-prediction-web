@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ ticker }}の予測株価</title>
+</head>
+
+<body>
+    <h1>{{ ticker }}の予測株価</h1>
+    <img src="{{ url_for('static', filename='plots/' + ticker + '_predicted_prices.png') }}" alt="Predicted Prices">
+    <a href="/">戻る</a>
+</body>
+
+</html>

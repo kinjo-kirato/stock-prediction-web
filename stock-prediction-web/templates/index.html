@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>機械学習による株価予測</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+        
+        h1,
+        h2 {
+            color: #333;
+        }
+        
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        input,
+        select,
+        button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #218838;
+        }
+        
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #007bff;
+        }
+        
+        #result h2 {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>機械学習による株価予測</h1>
+    <form id="stockForm">
+        <label for="ticker">銘柄コード:</label>
+        <input type="text" id="ticker" name="ticker" required>
+
+        <label for="model_type">機械学習モデル:</label>
+        <select id="model_type" name="model_type" required>
+            <option value="lstm">LSTM</option>
+            <option value="xgboost">XGBoost</option>
+            <option value="arima">ARIMA</option>
+            <option value="garch">GARCH</option>
+        </select>
+
+        <label for="period">予測する日数:</label>
+        <input type="number" id="period" name="period" min="1" required>
+
+        <button type="submit">予測</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('stockForm').addEventListener('submit', async(event) => {
+            event.preventDefault();
+
+            const ticker = document.getElementById('ticker').value;
+            const model_type = document.getElementById('model_type').value;
+            const period = document.getElementById('period').value;
+
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ticker,
+                    model_type,
+                    period
+                }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                document.getElementById('result').innerHTML = `<h2>予測株価: ¥${result.predicted_price.toFixed(2)}</h2>`;
+            } else {
+                document.getElementById('result').innerHTML = `<h2>Error: ${result.error}</h2>`;
+            }
+        });
+    </script>
+</body>
+
+</html>
