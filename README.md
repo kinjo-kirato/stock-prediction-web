@@ -52,4 +52,3 @@ https://gemini.google.com/app?hl=ja
 リートン
 
 https://wrtn.jp/?utm_source=google_sa&utm_medium=cpc&utm_content=5259775498_21153090680_160202942523_716375162855_kwd-356474340935&utm_campaign=Brand&utm_term=e_%E3%83%AA%E3%83%BC%E3%83%88%E3%83%B3&gad_source=1&gclid=Cj0KCQiA88a5BhDPARIsAFj595jOYLozY8zGNiUD2l-qA5Y_DGNNf4hgu0ELynKDCe4bgjad3ulg6UsaAsZxEALw_wcB
-![image](https://github.com/user-attachments/assets/85e636ec-3d70-48dc-ac14-5209069913af)
